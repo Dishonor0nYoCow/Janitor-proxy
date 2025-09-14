@@ -15,7 +15,7 @@ model_name = "mosaicml/mpt-7b-chat"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    device_map="auto",   # will automatically use CPU if no GPU
+    device_map={"": "cpu"},    # Force CPU usage
     use_auth_token=HF_API_KEY
 )
 
